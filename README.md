@@ -7,7 +7,7 @@ Shared automation training repo for the QA team. Built with Cypress and TypeScri
 You need [Node.js LTS](https://nodejs.org/) and [Git](https://git-scm.com/) installed before you start.
 
 ```bash
-git clone <REPO-URL-GOES-HERE>
+git clone https://github.com/zitegeist/cypressTraining.git
 cd cypressTraining
 npm install
 ```
@@ -26,6 +26,18 @@ This opens the Cypress App. Click **E2E Testing**, choose a browser, then click 
 
 ```bash
 npm run cy:run
+```
+
+## Code quality
+
+This repo uses TypeScript, ESLint, and Prettier to keep everyone's code consistent and
+catch mistakes early. If you use VS Code, install the recommended extensions when prompted
+(ESLint + Prettier) — your code will then auto-format on save and lint as you type.
+
+```bash
+npm run typecheck    # check types without running tests
+npm run lint         # find problems   (npm run lint:fix to auto-fix)
+npm run format       # auto-format all files (npm run format:check to verify only)
 ```
 
 ## Project structure

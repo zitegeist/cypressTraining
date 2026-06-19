@@ -1,0 +1,15 @@
+{
+  // Use the repo's own TypeScript so everyone gets the same red lines (or lack of).
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // Format on save with Prettier, and auto-apply safe ESLint fixes.
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

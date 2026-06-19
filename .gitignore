@@ -2,4 +2,14 @@ node_modules/
 cypress/screenshots/
 cypress/videos/
 cypress/downloads/
+
+# Local secrets / config — never commit credentials
+cypress.env.json
+.env
+.env.*
+
+# Editor / OS noise
+.idea/
+*.log
 .DS_Store
+Thumbs.db
