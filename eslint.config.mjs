@@ -2,7 +2,7 @@
 // Runs with: npm run lint   (auto-fix many issues with: npm run lint:fix)
 import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
-import cypress from 'eslint-plugin-cypress/flat'
+import cypress from 'eslint-plugin-cypress'
 import prettier from 'eslint-config-prettier'
 
 export default tseslint.config(
