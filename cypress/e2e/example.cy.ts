@@ -7,6 +7,6 @@ describe('Home page', () => {
 
   it('shows the website header text', () => {
     cy.visit('/')
-    cy.contains('Automation Exercise').should('be.visible')
+    cy.contains('Products').should('be.visible')
   })
 })
