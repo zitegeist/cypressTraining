@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "lib": ["es2016", "dom"],
+    "types": ["cypress", "node"],
+    "moduleResolution": "node",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["cypress/**/*.ts", "cypress.config.ts"]
+}

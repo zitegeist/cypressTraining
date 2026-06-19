@@ -1,0 +1,13 @@
+{
+  "name": "cypress-training",
+  "version": "1.0.0",
+  "description": "Shared QA automation training repo — Cypress + TypeScript",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^13.15.0",
+    "typescript": "^5.4.0"
+  }
+}

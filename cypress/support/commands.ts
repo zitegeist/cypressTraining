@@ -1,0 +1,21 @@
+// Custom commands — add yours here.
+// Example: cy.login() defined below is available in every test file.
+//
+// Usage:
+//   cy.login('student@example.com', 'password123')
+
+Cypress.Commands.add('login', (email: string, password: string) => {
+  cy.visit('/login')
+  cy.get('[data-qa="login-email"]').type(email)
+  cy.get('[data-qa="login-password"]').type(password)
+  cy.get('[data-qa="login-button"]').click()
+})
+
+// Extend the Cypress type system so TypeScript knows about cy.login()
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      login(email: string, password: string): Chainable<void>
+    }
+  }
+}
