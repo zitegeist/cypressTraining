@@ -69,3 +69,24 @@ Before considering a change done, make sure **`npm run typecheck`, `npm run lint
 Never commit credentials. `cypress.env.json`, `.env`, and `.env.*` are gitignored. Real
 login details for the practice site go in a local `cypress.env.json` and are read via
 `Cypress.env(...)`.
+
+## Skills and agents (required for AI-assisted test work)
+
+Three skills are bundled in `.claude/skills/` and **must be applied** whenever Claude
+authors, explains, or looks up Cypress content in this repo:
+
+| Skill | Trigger | What it does |
+|---|---|---|
+| `cypress-author` | Creating, updating, or fixing tests | Runs task identification → authoring → quality gates |
+| `cypress-explain` | Explaining or reviewing tests without code changes | Structured walkthrough of intent, structure, risks |
+| `cypress-docs` | Any Cypress API or behaviour lookup | Fetches from `docs.cypress.io/llm/*` before asserting |
+
+Two agents are available in `.claude/agents/` for direct delegation:
+
+| Agent | When to use |
+|---|---|
+| `cypress-test-author` | Ask it to write, add, or fix a spec — it follows the full `cypress-author` flow and verifies typecheck/lint/format before finishing |
+| `cypress-reviewer` | Ask it to review a spec — it audits selectors, assertions, timing, conventions, and runs the quality gates, then reports findings without touching files |
+
+**Claude must load and follow the relevant skill before writing or explaining any test.**
+Do not skip the skill flow for brevity.
