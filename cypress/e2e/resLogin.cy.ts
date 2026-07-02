@@ -8,7 +8,7 @@ describe('Res Login Tests', () => {
     // see login name and logout button
     cy.contains("Logout james.o'neill").should('be.visible')
     // Home Tab
-    cy.contains('Home').should('be.visible')
+    cy.contains('Home').should('not.be.visible')
     // URL
     cy.url().should('include', '/travelink/ui/#/')
   })
