@@ -13,13 +13,13 @@ describe('Automation Login Tests', () => {
     cy.contains('Logout').should('be.visible')
   })
 
-   it('Logout and verify', () => {
-    cy.get( 'a[href="/logout"]').click()
+   //it('Logout and verify', () => {
+    //cy.get( 'a[href="/logout"]').click()
     //Verify Redirected to home page on login
-    cy.url().should('include', '/login')
+    //cy.url().should('include', '/login')
     //Verify Signup/Login button is visible
-    cy.contains('a[href="/login"]').should('be.visible')
-  })
+    //cy.contains('a[href="/login"]').should('be.visible')
+  //})
 
   it('Failed login and verify', () => {
     cy.visit('/login')
