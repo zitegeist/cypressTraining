@@ -6,7 +6,7 @@ describe('Res Login Tests', () => {
     cy.get('#txtPassword').type('Comtec123!')
     cy.get('#btnLogin').click()
     // see login name and logout button
-    cy.contains("Logout james.o'neill").should('not.be.visible')
+    cy.contains("Logout james.o'neill").should('not.be.')
     // Home Tab
     cy.contains('Home').should('be.visible')
     // URL
