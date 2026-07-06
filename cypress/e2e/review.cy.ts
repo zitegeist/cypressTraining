@@ -18,7 +18,6 @@ describe('Review a product', () => {
     cy.get('[id="button-review"]').click()
     cy.contains('Thank you for your review', { timeout: 2000}).should('be.visible')
 
-
   })
 
 })

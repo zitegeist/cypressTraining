@@ -41,8 +41,6 @@ describe('Register new user', () => {
     cy.get('a[href="/delete_account"]').click()
     cy.contains('Account Deleted!', { timeout: 2000 }).should('be.visible')
     cy.get('[data-qa="continue-button"]').click()
-    
-
 
   })
 
