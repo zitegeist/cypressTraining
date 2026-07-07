@@ -9,6 +9,6 @@ describe('Arrivals and Departures Report', () => {
         cy.contains('Arrivals and Departures Report').click();
         cy.url().should('include', '/Travelink/ui/#/reports/arrivals-and-departures-report');
 
-        cy.contains('Sarch arrivals and departures').should('be.visible');
+        cy.contains('Arrivals and departures report').should('be.visible');
   })
 })
