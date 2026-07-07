@@ -16,7 +16,6 @@ describe('Res test', () => {
     //Create new quote
     cy.contains('a', 'Create new').click()
     cy.contains('a', 'Create new quote').click()
-    getIframeBody().find('#result').should('include.text', '"delectus aut autem"')
-    cy.contains('CAMC UK').click()
+    cy.getIframeBody('[data-testid="iFrame:New quote"]').contains('CAMC UK').click()
   })
 })
