@@ -1,11 +1,11 @@
 describe('Place Order Scenarios', () => {
 
   const user = {
-    name: 'QA Tester',
-    email: `qatester${Date.now()}@example.com`,
-    password: 'Password123!',
-    firstName: 'QA',
-    lastName: 'Tester',
+    name: 'Kelly',
+    email: `kelly_oconnell88@icloud.com`,
+    password: 'Comtec123!',
+    firstName: 'Kelly',
+    lastName: 'O\'Connell',
     address: '123 Test Street',
     country: 'Canada',
     state: 'Ontario',
