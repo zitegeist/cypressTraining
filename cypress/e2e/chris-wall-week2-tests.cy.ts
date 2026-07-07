@@ -45,4 +45,3 @@ describe('Automation Exercise Login Tests', () => {
     cy.contains('Signup / Login').should('be.visible')
   })
 })
-
