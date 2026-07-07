@@ -1,5 +1,5 @@
 describe('Automation Login Tests', () => {
-  describe('Valid login details', () => {
+  describe('Valid login tests', () => {
     beforeEach(() => {
       //Navigate to Login Page before each test
       cy.visit('/login')
