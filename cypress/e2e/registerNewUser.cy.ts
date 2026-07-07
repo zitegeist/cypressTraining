@@ -14,7 +14,7 @@ describe('Register new user', () => {
 
     //Complete fields
     cy.contains('Enter Account Information', { timeout: 2000 }).should('be.visible')
-    cy.get("#id_gender1").click()
+    cy.get('#id_gender1').click()
     cy.get('#password.form-control').type('Password123')
     cy.get('#days.form-control').select('1')
     cy.get('#months.form-control').select('January')
@@ -35,13 +35,11 @@ describe('Register new user', () => {
     cy.get('[data-qa="account-created"]').should('be.visible')
     cy.get('[data-qa="continue-button"]').click()
     cy.contains('Logged in as Callum Test').should('be.visible')
-    
+
     //Delete account
     cy.get('a[href="/delete_account"]').should('be.visible')
     cy.get('a[href="/delete_account"]').click()
     cy.contains('Account Deleted!', { timeout: 2000 }).should('be.visible')
     cy.get('[data-qa="continue-button"]').click()
-
   })
-
 })

@@ -16,8 +16,6 @@ describe('Review a product', () => {
     cy.get('#email').type('callum.test@live.com')
     cy.get('#review').type('Top arrived but it was red!')
     cy.get('[id="button-review"]').click()
-    cy.contains('Thank you for your review', { timeout: 2000}).should('be.visible')
-
+    cy.contains('Thank you for your review', { timeout: 2000 }).should('be.visible')
   })
-
 })
