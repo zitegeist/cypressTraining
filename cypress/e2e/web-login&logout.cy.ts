@@ -9,7 +9,7 @@ describe('Login and Logout', () => {
   it('should login successfully and logout', () => {
 
     // Launch browser and navigate to website
-    cy.visit('https://automationexercise.com');
+    cy.visit('/');
 
     // Verify home page is displayed
     cy.get('body').should('be.visible');
