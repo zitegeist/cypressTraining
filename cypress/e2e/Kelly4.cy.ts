@@ -4,8 +4,7 @@ describe('Arrivals and Departures Report', () => {
         cy.get('#ddlDatabase').select('Q244_MLQA_CAMC_11Feb26_Automation_Only');
         cy.get('#txtUserName').type('kelly-anne.oconnell');
         cy.get('#txtPassword').type('Comtec123!');
-        cy.get('#signInButton').click();
-
+        cy.get('#btnLogin').click()
         cy.contains('Reports').click();
         cy.contains('Arrivals and Departures Report').click();
         cy.url().should('include', '/Travelink/ui/#/reports/arrivals-departures');
