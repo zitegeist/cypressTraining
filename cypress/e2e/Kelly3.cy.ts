@@ -1,7 +1,7 @@
 describe('Login and Logout', () => {
 
   const user = {
-    email: 'kelly_oconnell88@icloud.com', // Replace with the registered email
+    email: 'Kelly_oconnell88@icloud.com', // Replace with the registered email
     password: 'Comtec123!', // Replace with the registered password
     username: 'Kelly', // Replace with the registered username
   };
