@@ -1,4 +1,4 @@
-describe('Automation Login Tests', () => {
+describe('Automation Exercise Login Tests', () => {
   describe('Valid login tests', () => {
     beforeEach(() => {
       //Navigate to Login Page before each test
@@ -30,7 +30,7 @@ describe('Automation Login Tests', () => {
     })
   })
 
-  it('Failed login', () => {
+  it('Invalid login test', () => {
     //Navigate to Login Page before each test
     cy.visit('/login')
     //Verify URL contains /login
