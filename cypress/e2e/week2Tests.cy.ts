@@ -8,7 +8,7 @@ describe('Search Products', () => {
     cy.get('#submit_search').click()
     cy.contains('Searched Products').should('be.visible')
     cy.contains('Winter Top').should('be.visible')
-    })
+  })
 
 
 })
@@ -25,7 +25,7 @@ describe('Login User with Valid password', () => {
     cy.get('[data-qa="login-password"]').type('Mississippi94!')
     cy.get('[data-qa="login-button"]').click()
     cy.contains('Logged in as samantha').should('be.visible')
-    })
+  })
 
 })
 
@@ -39,7 +39,7 @@ describe('Login User with Invalid password', () => {
     cy.get('[data-qa="login-password"]').type('Mississippi94')
     cy.get('[data-qa="login-button"]').click()
     cy.contains('Your email or password is incorrect!').should('be.visible')
-    })
+  })
 
 
 })
