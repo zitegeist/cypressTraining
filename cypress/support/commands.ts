@@ -11,13 +11,13 @@ Cypress.Commands.add('login', (email: string, password: string) => {
   cy.get('[data-qa="login-button"]').click()
 })
 
+Cypress.Commands.add('getIframeBody', (selector: string) => {
+  return cy
+    .get(selector, { timeout: 180000 })
+    .its('0.contentDocument.body', { timeout: 180000 })
+    .should('not.be.empty')
+    .then(cy.wrap) as Cypress.Chainable<JQuery<HTMLBodyElement>>
+})
+
 // Extend the Cypress type system so TypeScript knows about cy.login()
 export {} // makes this file a module so `declare global` is allowed
-
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      login(email: string, password: string): Chainable<void>
-    }
-  }
-}

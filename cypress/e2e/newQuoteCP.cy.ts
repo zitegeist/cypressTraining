@@ -1,5 +1,3 @@
-import { TIMEOUT } from 'dns'
-
 describe('Res test', () => {
   it('Res test - create quote', () => {
     cy.on('uncaught:exception', () => {
@@ -18,7 +16,7 @@ describe('Res test', () => {
     //Create new quote
     cy.contains('a', 'Create new').click()
     cy.contains('a', 'Create new quote').click()
-    cy.contains('New Quote', { timeout: 5000 }).should('be.visible')
-    cy.get('a[href*="prod=CAMC UK Product"]').click()
+    getIframeBody().find('#result').should('include.text', '"delectus aut autem"')
+    cy.contains('CAMC UK').click()
   })
 })
