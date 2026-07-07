@@ -115,7 +115,7 @@ describe('Place Order Scenarios', () => {
   it('Test Case 15 - Place Order: Register before Checkout', () => {
 
     // Create another unique email
-    user.email = `qatester${Date.now()}@example.com`;
+    user.email = 'koconnelltest@gmail.com';
 
     cy.visit('https://automationexercise.com');
 
