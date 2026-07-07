@@ -1,9 +1,9 @@
 describe('Login and Logout', () => {
 
   const user = {
-    email: 'qatester@example.com',      // Replace with a valid registered email
-    password: 'Password123!',
-    username: 'QA Tester'               // Replace with the registered username
+    email: 'kelly-anne.oconnell@inspiretec.com', // Replace withistered email
+    password: 'Comtec123!', // Replace with the registered password
+    username: 'KOConnell'       // Replace with the registered username
   };
 
   it('should login successfully and logout', () => {
