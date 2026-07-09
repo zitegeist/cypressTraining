@@ -1,7 +1,7 @@
 describe('Login and Logout', () => {
 
   const user = {
-    email: 'kelly_oconnell88@icloud.com', // Replace withistered email
+    email: 'Kelly_oconnell88@icloud.com', // Replace withistered email
     password: 'Comtec123!', // Replace with the registered password
     username: 'Kelly', // Replace with the registered username
   };
@@ -21,14 +21,14 @@ describe('Login and Logout', () => {
     cy.contains('Login to your account').should('be.visible');
 
     // Enter login credentials
-    cy.get('[data-qa="login-email"]').type(user.email);
-    cy.get('[data-qa="login-password"]').type(user.password);
+    cy.get('[data-qa="login-email"]').type('Kelly_oconnell88@icloud.com');
+    cy.get('[data-qa="login-password"]').type('Comtec123!');
 
     // Click Login
     cy.get('[data-qa="login-button"]').click();
 
     // Verify successful login
-    cy.contains(`Logged in as ${user.username}`).should('be.visible');
+    cy.contains('Logged in as Kelly').should('be.visible');
 
     // Click Logout
     cy.contains('Logout').click();
