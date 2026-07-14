@@ -19,6 +19,13 @@ Cypress.Commands.add('simpleLogin', () => {
   cy.get('[data-qa="login-button"]').click()
 })
 
+Cypress.Commands.add('clearBasket', () => {
+  cy.contains('Cart').click()
+  cy.get('.cart_quantity_delete').click({ multiple: true })
+  cy.contains('Cart is empty!').should('be.visible')
+  cy.contains('Home').click()
+})
+
 // Extend the Cypress type system so TypeScript knows about cy.login()
 export {} // makes this file a module so `declare global` is allowed
 
@@ -27,6 +34,7 @@ declare global {
     interface Chainable {
       login(email: string, password: string): Chainable<void>
       simpleLogin(): Chainable<void>
+      clearBasket(): Chainable<void>
     }
   }
 }
