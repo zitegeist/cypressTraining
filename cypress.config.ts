@@ -1,6 +1,7 @@
 import { defineConfig } from 'cypress'
 
 export default defineConfig({
+  projectId: '5vov84',
   e2e: {
     baseUrl: 'https://automationexercise.com',
     viewportWidth: 1280,

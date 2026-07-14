@@ -10,6 +10,14 @@ Cypress.Commands.add('login', (email: string, password: string) => {
   cy.get('[data-qa="login-password"]').type(password)
   cy.get('[data-qa="login-button"]').click()
 })
+<<<<<<< HEAD
+Cypress.Commands.add('simpleLogin', () => {
+  cy.visit('/login')
+  cy.get('[data-qa="login-email"]').type('Kelly_oconnell88@icloud.com')
+  cy.get('[data-qa="login-password"]').type('Comtec123!')
+  cy.get('[data-qa="login-button"]').click()
+})
+=======
 
 Cypress.Commands.add('simpleLogin', () => {
   cy.visit('/')
@@ -19,6 +27,7 @@ Cypress.Commands.add('simpleLogin', () => {
   cy.get('[data-qa="login-button"]').click()
 })
 
+<<<<<<< HEAD
 Cypress.Commands.add('clearBasket', () => {
   cy.contains('Cart').click()
   cy.get('.cart_quantity_delete').click({ multiple: true })
@@ -26,6 +35,9 @@ Cypress.Commands.add('clearBasket', () => {
   cy.contains('Home').click()
 })
 
+=======
+>>>>>>> e6a43f5753dd89bbb496881188b82c9ec630f11f
+>>>>>>> 0ee00debcd935c0cd79e32841dd0768ba8da13e3
 // Extend the Cypress type system so TypeScript knows about cy.login()
 export {} // makes this file a module so `declare global` is allowed
 
