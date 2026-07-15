@@ -29,6 +29,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       simpleLogin(): Chainable<void>
+      clearBasket(): Chainable<void>
     }
   }
 }
