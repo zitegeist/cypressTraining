@@ -1,14 +1,7 @@
 describe('Automation Exercise Login Tests', () => {
   describe('Valid login tests', () => {
     beforeEach(() => {
-      //Navigate to Login Page before each test
-      cy.visit('/login')
-      //Verify URL contains /login
-      cy.url().should('include', '/login')
-      //Enter valid email and password and click login button
-      cy.get('[data-qa="login-email"]').type('chris.wall@inspiretec.com')
-      cy.get('[data-qa="login-password"]').type('Comtec123!')
-      cy.get('[data-qa="login-button"]').click()
+      cy.simpleLogin()
     })
 
     it('Login successfully and verify', () => {
