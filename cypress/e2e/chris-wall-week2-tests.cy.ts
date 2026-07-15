@@ -11,7 +11,7 @@ describe('Automation Exercise Login Tests', () => {
       cy.get('[data-qa="login-button"]').click()
     })
 
-    it('Login succesfully', () => {
+    it('Login successfully and verify', () => {
       //Verify Redirected to home page on login
       cy.url().should('include', '/')
       //Verify 'logged in as.....' text is visible
@@ -20,7 +20,7 @@ describe('Automation Exercise Login Tests', () => {
       cy.contains('Logout').should('be.visible')
     })
 
-    it('Logout succesfully', () => {
+    it('Logout successfully and verify', () => {
       //Click logout button
       cy.get('a[href="/logout"]').click()
       //Verify Redirected to home page on login
@@ -30,7 +30,7 @@ describe('Automation Exercise Login Tests', () => {
     })
   })
 
-  it('Invalid login test', () => {
+  it('Invalid login test and verify error message', () => {
     //Navigate to Login Page before each test
     cy.visit('/login')
     //Verify URL contains /login
