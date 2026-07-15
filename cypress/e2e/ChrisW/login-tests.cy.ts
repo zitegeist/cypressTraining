@@ -1,10 +1,9 @@
-describe('Automation Exercise Login Tests', () => {
-  describe('Valid login tests', () => {
+describe('Valid login tests', () => {
     beforeEach(() => {
-      cy.simpleLogin()
+      cy.visitLoginPage()
+      cy.validLogin()
     })
-
-    it('Login successfully and verify', () => {
+    it('Enter valid login details | verify login successful', () => {
       //Verify Redirected to home page on login
       cy.url().should('include', '/')
       //Verify 'logged in as.....' text is visible
@@ -13,7 +12,7 @@ describe('Automation Exercise Login Tests', () => {
       cy.contains('Logout').should('be.visible')
     })
 
-    it('Logout successfully and verify', () => {
+    it('Select logout | verify logout successful', () => {
       //Click logout button
       cy.get('a[href="/logout"]').click()
       //Verify Redirected to home page on login
@@ -23,15 +22,11 @@ describe('Automation Exercise Login Tests', () => {
     })
   })
 
-  it('Invalid login test and verify error message', () => {
-    //Navigate to Login Page before each test
-    cy.visit('/login')
-    //Verify URL contains /login
-    cy.url().should('include', '/login')
+describe('Invalid login tests', () => {
+  it('Enter invalid login details | verify not logged in & error message shown', () => {
+    cy.visitLoginPage()
     //Enter invalid email and password and click login button
-    cy.get('[data-qa="login-email"]').type('invalid@email.com')
-    cy.get('[data-qa="login-password"]').type('invalidpassword')
-    cy.get('[data-qa="login-button"]').click()
+    cy.invalidLogin()
     //Verify error message is visible
     cy.contains('Your email or password is incorrect!').should('be.visible')
     //Verify Signup/Login button is visible
