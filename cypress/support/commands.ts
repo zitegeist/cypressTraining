@@ -15,6 +15,13 @@ Cypress.Commands.add('simpleLogin', () => {
   cy.get('[data-qa="login-button"]').click()
 })
 
+Cypress.Commands.add('clearBasket', () => {
+  cy.contains('Cart').click()
+  cy.get('.cart_quantity_delete').click({ multiple: true })
+  cy.contains('Cart is empty!').should('be.visible')
+  cy.contains('Home').click()
+})
+
 // Extend the Cypress type system so TypeScript knows about cy.simpleLogin()
 export {} // makes this file a module so `declare global` is allowed
 
