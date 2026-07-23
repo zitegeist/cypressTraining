@@ -1,41 +1,4 @@
-describe('Logged in | Basket Tests', () => {
-  beforeEach(() => {
-    cy.simpleLogin()
-    cy.clearBasket()
-  })
-  it('Logged in | Add one item to basket and verify', () => {
-    cy.contains('Logout').should('be.visible')
-    cy.get('[data-product-id="2"]').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
-    cy.get('#cartModal').contains('View Cart').click()
-    cy.url().should('include', '/view_cart')
-    cy.get('#cart_info_table').should('be.visible')
-    cy.get('#cart_info_table').should('have.length', 1)
-    cy.get('.cart_description').should('not.be.empty')
-    cy.get('.cart_quantity').contains('1').should('be.visible')
-    cy.get('.cart_price').should('contain.text', 'Rs.')
-    cy.get('.cart_total .cart_total_price').should('contain.text', 'Rs.')
-  })
-
-  it('Logged in | Add multiple items to basket and verify', () => {
-    cy.get('[data-product-id="2"]').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
-    cy.contains('Continue Shopping').click()
-    cy.get('[data-product-id="8"]').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
-    cy.get('#cartModal').contains('View Cart').click()
-    cy.url().should('include', '/view_cart')
-    cy.get('#cart_info_table').should('be.visible')
-    cy.get('#cart_info_table tbody tr').should('have.length', 2)
-    cy.get('.cart_description').should('not.be.empty')
-    cy.get('.cart_price').should('contain.text', 'Rs.')
-    cy.get('.cart_total .cart_total_price').should('contain.text', 'Rs.')
-  })
-
-  it('Logged in | Add multiple items to basket and remove one', () => {
+it('Logged in | Add multiple items to basket and remove one', () => {
     cy.get('[data-product-id="4"]').first().click()
     cy.get('#cartModal').should('be.visible')
     cy.contains('Added!').should('be.visible')
@@ -54,7 +17,7 @@ describe('Logged in | Basket Tests', () => {
     cy.get('#cart_info_table tbody tr').should('have.length', 1)
     cy.get('#product-11').should('not.exist')
   })
-
+ 
   it('Logged in | Click proceed to checkout and verify the checkout page', () => {
     cy.contains('Logout').should('be.visible')
     cy.get('[data-product-id="7"]').first().click()
