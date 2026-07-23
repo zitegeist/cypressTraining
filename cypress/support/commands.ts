@@ -10,7 +10,7 @@ Cypress.Commands.add('login', (email: string, password: string) => {
   cy.get('[data-qa="login-password"]').type(password)
   cy.get('[data-qa="login-button"]').click()
 })
-Cypress.Commands.add('simpleLogin', () => {
+Cypress.Commands.add('login', () => {
   cy.visit('/login')
   cy.get('[data-qa="login-email"]').type('Kelly_oconnell88@icloud.com')
   cy.get('[data-qa="login-password"]').type('Comtec123!')
