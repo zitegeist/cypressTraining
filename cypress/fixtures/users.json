@@ -1,7 +1,7 @@
 {
   "validUser": {
-    "email": "your-registered-email@example.com",
-    "password": "yourpassword"
+    "email": "james.oneill@inspiretec.com",
+    "password": "Comtec123!"
   },
   "invalidUser": {
     "email": "notregistered@example.com",
