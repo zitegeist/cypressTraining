@@ -1,7 +1,7 @@
 {
   "validUser": {
-    "email": "your-registered-email@example.com",
-    "password": "yourpassword"
+    "email": "callum.test@live.com",
+    "password": "Password123"
   },
   "invalidUser": {
     "email": "notregistered@example.com",
