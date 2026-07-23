@@ -1,6 +1,8 @@
 describe('Logged in | Basket Tests', () => {
   beforeEach(() => {
-    cy.simpleLogin()
+    cy.fixture('users').then((users) => {
+      cy.login(users.validUser.email, users.validUser.passowrd)
+    })
     cy.clearBasket()
   })
   it('Logged in | Add one item to basket and verify', () => {
