@@ -5,9 +5,9 @@ describe('Login Tests', () => {
       cy.contains('Logout').should('be.visible')
     })
   })
-  it('Login - successful', () => {
+  it('Login - unsuccessful', () => {
     cy.fixture('users').then((users) => {
-      cy.login(users.validUser.email, users.validUser.password)
+      cy.login(users.invalidUser.email, users.validUser.password)
       cy.contains('Logout').should('be.visible')
     })
   })
