@@ -1,7 +1,9 @@
 describe('Logged in | Basket Tests', () => {
   beforeEach(() => {
     cy.visitLoginPage()
-    cy.login()
+    cy.fixture('users').then((users) => {
+      cy.login(users.validUser.email, users.validUser.password)
+    })
     cy.clearBasket()
   })
   it('Logged in | Add one item to basket and verify', () => {
@@ -25,7 +27,7 @@ describe('Logged in | Basket Tests', () => {
     cy.get('.cart_total .cart_total_price').should('contain.text', 'Rs.')
   })
 
- it('Logged in | Add two items to basket then remove one verify one item remains in basket', () => {
+  it('Logged in | Add two items to basket then remove one verify one item remains in basket', () => {
     cy.addTwoItemsToBasket()
     cy.url().should('include', '/view_cart')
     cy.get('#cart_info_table').should('be.visible')
