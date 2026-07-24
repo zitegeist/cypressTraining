@@ -12,17 +12,17 @@ Cypress.Commands.add('visitHomePage', () => {
   cy.visit('/')
 })
 
-Cypress.Commands.add('validLogin', () => {
-  cy.get('[data-qa="login-email"]').type('chris.wall@inspiretec.com')
-  cy.get('[data-qa="login-password"]').type('Comtec123!')
+Cypress.Commands.add('login', (email, password) => {
+  cy.get('[data-qa="login-email"]').type(email)
+  cy.get('[data-qa="login-password"]').type(password)
   cy.get('[data-qa="login-button"]').click()
 })
 
-Cypress.Commands.add('invalidLogin', () => {
-  cy.get('[data-qa="login-email"]').type('invalid@email.com')
-  cy.get('[data-qa="login-password"]').type('invalidpassword')
-  cy.get('[data-qa="login-button"]').click()
-})
+//Cypress.Commands.add('invalidLogin', () => {
+  //cy.get('[data-qa="login-email"]').type('invalid@email.com')
+  //cy.get('[data-qa="login-password"]').type('invalidpassword')
+  //cy.get('[data-qa="login-button"]').click()
+//})
 
 Cypress.Commands.add('clearBasket', () => {
   cy.contains('Cart').click()

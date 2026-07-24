@@ -1,7 +1,7 @@
 describe('Logged in | Basket Tests', () => {
   beforeEach(() => {
     cy.visitLoginPage()
-    cy.validLogin()
+    cy.login()
     cy.clearBasket()
   })
   it('Logged in | Add one item to basket and verify', () => {
