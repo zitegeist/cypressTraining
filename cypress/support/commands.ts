@@ -24,6 +24,12 @@ Cypress.Commands.add('clearBasket', () => {
   cy.contains('Home').click()
 })
 
+Cypress.Commands.add('addToBasket', (productId: string) => {
+  cy.get(`[data-product-id="${productId}"]`).first().click()
+  cy.get('#cartModal').should('be.visible')
+  cy.contains('Added!').should('be.visible')
+})
+
 // Extend the Cypress type system so TypeScript knows about cy.login()
 export {} // makes this file a module so `declare global` is allowed
 
@@ -33,6 +39,7 @@ declare global {
       login(email: string, password: string): Chainable<void>
       simpleLogin(): Chainable<void>
       clearBasket(): Chainable<void>
+      addToBasket(productId: string): Chainable<void>
     }
   }
 }
