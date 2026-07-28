@@ -1,6 +1,6 @@
 {
   "validUser": {
-    "email": "james.oneill@inspiretec.com",
+    "email": "PUT YOUR INFO IN THE users.json FILE",
     "password": "Comtec123!"
   },
   "invalidUser": {

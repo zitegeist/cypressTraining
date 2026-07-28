@@ -22,13 +22,9 @@ describe('Logged in | Basket Tests', () => {
   })
 
   it('Logged in | Add multiple items to basket and verify', () => {
-    cy.get('[data-product-id="2"]').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
+    cy.addToBasket('2')
     cy.contains('Continue Shopping').click()
-    cy.get('[data-product-id="8"]').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
+    cy.addToBasket('8')
     cy.get('#cartModal').contains('View Cart').click()
     cy.url().should('include', '/view_cart')
     cy.get('#cart_info_table').should('be.visible')
