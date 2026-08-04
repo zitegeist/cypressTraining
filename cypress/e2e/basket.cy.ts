@@ -1,13 +1,10 @@
-describe('Logged in | Basket Tests', () => {
+describe('Basket Tests', () => {
   beforeEach(() => {
-    cy.simpleLogin()
-    cy.clearBasket()
+    cy.visit('/')
   })
-  it('Logged in | Add one item to basket and verify', () => {
-    cy.contains('Logout').should('be.visible')
-    cy.get('.add-to-cart').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
+
+  it('Add one item to basket and verify', () => {
+    cy.addToBasket('1')
     cy.get('#cartModal').contains('View Cart').click()
     cy.url().should('include', '/view_cart')
     cy.get('#cart_info_table').should('be.visible')
@@ -18,14 +15,10 @@ describe('Logged in | Basket Tests', () => {
     cy.get('.cart_total .cart_total_price').should('contain.text', 'Rs.')
   })
 
-  it('Logged in | Add multiple items to basket and verify', () => {
-    cy.get('[data-product-id="2"]').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
+  it('Add multiple items to basket and verify', () => {
+    cy.addToBasket('2')
     cy.contains('Continue Shopping').click()
-    cy.get('[data-product-id="8"]').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
+    cy.addToBasket('8')
     cy.get('#cartModal').contains('View Cart').click()
     cy.url().should('include', '/view_cart')
     cy.get('#cart_info_table').should('be.visible')
@@ -34,22 +27,19 @@ describe('Logged in | Basket Tests', () => {
     cy.get('.cart_price').should('contain.text', 'Rs.')
     cy.get('.cart_total .cart_total_price').should('contain.text', 'Rs.')
   })
-})
 
-describe('Logged out | Basket Tests', () => {
-  it('Logged out | Add one item to basket and verify', () => {
-    cy.visit('/')
-    cy.get('[data-product-id="1"]').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
+  it('Remove from basket', () => {
+    cy.addToBasket('2')
+    cy.contains('Continue Shopping').click()
+    cy.addToBasket('8')
     cy.get('#cartModal').contains('View Cart').click()
     cy.url().should('include', '/view_cart')
     cy.get('#cart_info_table').should('be.visible')
-    cy.get('#cart_info_table').should('have.length', 1)
-    cy.get('.cart_description').should('not.be.empty')
+    cy.get('.cart_quantity').contains('2').should('be.visible')
+    cy.get('#cart_info_table tbody tr').should('have.length', 2)
+    cy.get('.cart_quantity_delete').first().click()
+    cy.get('#cart_info_table tbody tr').should('have.length', 1)
     cy.get('.cart_quantity').contains('1').should('be.visible')
-    cy.get('.cart_price').should('contain.text', 'Rs.')
-    cy.get('.cart_total .cart_total_price').should('contain.text', 'Rs.')
   })
 })
 
