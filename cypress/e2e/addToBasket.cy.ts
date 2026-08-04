@@ -8,9 +8,7 @@ describe('Logged in | Basket Tests', () => {
   })
   it('Logged in | Add one item to basket and verify', () => {
     cy.contains('Logout').should('be.visible')
-    cy.get('.add-to-cart').first().click()
-    cy.get('#cartModal').should('be.visible')
-    cy.contains('Added!').should('be.visible')
+    cy.addToBasket('1')
     cy.get('#cartModal').contains('View Cart').click()
     cy.url().should('include', '/view_cart')
     cy.get('#cart_info_table').should('be.visible')
@@ -38,7 +36,7 @@ describe('Logged in | Basket Tests', () => {
 describe('Logged out | Basket Tests', () => {
   it('Logged out | Add one item to basket and verify', () => {
     cy.visit('/')
-    cy.get('[data-product-id="1"]').first().click()
+    cy.addToBasket('1')
     cy.get('#cartModal').should('be.visible')
     cy.contains('Added!').should('be.visible')
     cy.get('#cartModal').contains('View Cart').click()
