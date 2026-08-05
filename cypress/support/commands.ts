@@ -19,12 +19,6 @@ Cypress.Commands.add('login', (email: string, password: string) => {
   cy.get('[data-qa="login-button"]').click()
 })
 
-//Cypress.Commands.add('invalidLogin', () => {
-//cy.get('[data-qa="login-email"]').type('invalid@email.com')
-//cy.get('[data-qa="login-password"]').type('invalidpassword')
-//cy.get('[data-qa="login-button"]').click()
-//})
-
 Cypress.Commands.add('clearBasket', () => {
   cy.contains('Cart').click()
   cy.get('body').then(($body) => {
@@ -36,22 +30,16 @@ Cypress.Commands.add('clearBasket', () => {
   cy.contains('Home').click()
 })
 
-Cypress.Commands.add('addSingleItemToBasket', () => {
-  cy.get('.add-to-cart').first().click()
+Cypress.Commands.add('addToBasket', (productId: string) => {
+  cy.get(`[data-product-id="${productId}"]`).first().click()
   cy.get('#cartModal').should('be.visible')
   cy.contains('Added!').should('be.visible')
-  cy.get('#cartModal').contains('View Cart').click()
 })
 
-Cypress.Commands.add('addTwoItemsToBasket', () => {
-  cy.get('[data-product-id="2"]').first().click()
-  cy.get('#cartModal').should('be.visible')
-  cy.contains('Added!').should('be.visible')
-  cy.contains('Continue Shopping').click()
-  cy.get('[data-product-id="8"]').first().click()
-  cy.get('#cartModal').should('be.visible')
-  cy.contains('Added!').should('be.visible')
+Cypress.Commands.add('addToBasketAndViewCart', (productId: string) => {
+  cy.addToBasket(productId)
   cy.get('#cartModal').contains('View Cart').click()
+  cy.url().should('include', '/view_cart')
 })
 
 // Extend the Cypress type system so TypeScript knows about cy.simpleLogin()
@@ -64,8 +52,8 @@ declare global {
       clearBasket(): Chainable<void>
       visitLoginPage(): Chainable<void>
       visitHomePage(): Chainable<void>
-      addSingleItemToBasket(): Chainable<void>
-      addTwoItemsToBasket(): Chainable<void>
+      addToBasket(productId: string): Chainable<void>
+      addToBasketAndViewCart(productId: string): Chainable<void>
     }
   }
 }

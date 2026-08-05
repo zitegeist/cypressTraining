@@ -33,5 +33,6 @@ describe('Invalid login tests', () => {
     cy.contains('Your email or password is incorrect!').should('be.visible')
     //Verify Signup/Login button is visible
     cy.contains('Signup / Login').should('be.visible')
+    cy.contains('Logout').should('not.exist')
   })
 })

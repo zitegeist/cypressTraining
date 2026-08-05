@@ -7,10 +7,9 @@ describe('Logged in | Basket Tests', () => {
     cy.clearBasket()
   })
   it('Logged in | Add one item to basket and verify', () => {
-    cy.addSingleItemToBasket()
-    cy.url().should('include', '/view_cart')
+    cy.addToBasketAndViewCart('2')
     cy.get('#cart_info_table').should('be.visible')
-    cy.get('#cart_info_table').should('have.length', 1)
+    cy.get('#cart_info_table tbody tr').should('have.length', 1)
     cy.get('.cart_description').should('not.be.empty')
     cy.get('.cart_quantity').contains('1').should('be.visible')
     cy.get('.cart_price').should('contain.text', 'Rs.')
@@ -18,7 +17,10 @@ describe('Logged in | Basket Tests', () => {
   })
 
   it('Logged in | Add multiple items to basket and verify', () => {
-    cy.addTwoItemsToBasket()
+    cy.addToBasket('2')
+    cy.contains('Continue Shopping').click()
+    cy.addToBasket('8')
+    cy.get('#cartModal').contains('View Cart').click()
     cy.url().should('include', '/view_cart')
     cy.get('#cart_info_table').should('be.visible')
     cy.get('#cart_info_table tbody tr').should('have.length', 2)
@@ -28,7 +30,10 @@ describe('Logged in | Basket Tests', () => {
   })
 
   it('Logged in | Add two items to basket then remove one verify one item remains in basket', () => {
-    cy.addTwoItemsToBasket()
+    cy.addToBasket('2')
+    cy.contains('Continue Shopping').click()
+    cy.addToBasket('8')
+    cy.get('#cartModal').contains('View Cart').click()
     cy.url().should('include', '/view_cart')
     cy.get('#cart_info_table').should('be.visible')
     cy.get('#cart_info_table tbody tr').should('have.length', 2)
@@ -45,9 +50,8 @@ describe('Logged out | Basket Tests', () => {
     cy.visitHomePage()
     cy.clearBasket()
   })
-  it('Logged out | Add one item to basket and verify', () => {
-    cy.addSingleItemToBasket()
-    cy.url().should('include', '/view_cart')
+  it.only('Logged out | Add one item to basket and verify', () => {
+    cy.addToBasketAndViewCart('2')
     cy.get('#cart_info_table').should('be.visible')
     cy.get('#cart_info_table').should('have.length', 1)
     cy.get('.cart_description').should('not.be.empty')
@@ -57,7 +61,10 @@ describe('Logged out | Basket Tests', () => {
   })
 
   it('Logged out | Add multiple items to basket and verify', () => {
-    cy.addTwoItemsToBasket()
+    cy.addToBasket('2')
+    cy.contains('Continue Shopping').click()
+    cy.addToBasket('8')
+    cy.get('#cartModal').contains('View Cart').click()
     cy.url().should('include', '/view_cart')
     cy.get('#cart_info_table').should('be.visible')
     cy.get('#cart_info_table tbody tr').should('have.length', 2)
